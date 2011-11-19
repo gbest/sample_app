@@ -5,6 +5,10 @@ describe PagesController do
   #graham:this line customizes this spec to render views as part of testing
   render_views
 
+  #NOTE: title checks do NOT fail if @title instance variable in pages controller
+  #      contains characters after the required portion, such as "Home (SUCKS)!!"
+  #      Perhaps this is a limitation of .should have_selector's :content attribute?
+
   describe "GET 'home'" do
     it "should be successful" do
       get 'home'
@@ -41,4 +45,15 @@ describe PagesController do
     end
   end
 
+  describe "GET 'help'" do
+    it "should be successful" do
+      get 'help'
+      response.should be_success
+    end
+    it "should have the right title" do
+      get 'help'
+      response.should have_selector("title",
+		:content => "Ruby on Rails Tutorial Sample App | Help")
+    end
+  end
 end
