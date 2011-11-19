@@ -5,7 +5,7 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# grham: version number appended
+# graham: version number appended
 gem 'sqlite3', '1.3.3'
 
 # graham: development group added
@@ -17,6 +17,7 @@ end
 group :test do
   gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
+  gem 'spork', '0.9.0.rc8'
 end
 
 
