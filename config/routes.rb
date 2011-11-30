@@ -1,9 +1,20 @@
 SampleApp::Application.routes.draw do
 
+  # routes expressed literally from site root
   get "pages/home"
-  get "pages/contact"
-  get "pages/about"
-  get "pages/help"
+  # get "pages/contact"
+  # get "pages/about"
+  # get "pages/help"
+
+  # root route mapping
+  # this mappings also creates URL helpers root_path, root_url
+  root :to => "pages#home"
+
+  # route mappings
+  # mappings also create URL helpers for each mapped page automatically 
+  match '/contact', :to => 'pages#contact'  #e.g contact_path, contact_url
+  match '/about',   :to => 'pages#about'    #.eg. about_path, about_url
+  match '/help',    :to => 'pages#help'
  
   # The priority is based upon order of creation:
   # first created -> highest priority.
